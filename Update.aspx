@@ -31,8 +31,9 @@
         }
 
         .ShowRecord {
-            
             overflow-y: auto;
+            border-left: 2px solid black;
+            width: 70%;
         }
 
         .input-field {
@@ -50,10 +51,6 @@
                 letter-spacing: 1px;
                 font-weight: 600;
             }
-
-        .ShowRecord {
-            border-left: 2px solid black;
-        }
     </style>
 </asp:Content>
 
@@ -67,69 +64,21 @@
         </div>
 
         <div class="Records">
-            
-
-
-            <div class="input-field">
-                <table>
-                    <tr>
-                        <th colspan="2" style="text-align: center">Insert Records</th>
-                    </tr>
-                    <tr>
-                        <th>Title</th>
-                        <td>
-                            <asp:TextBox class="form-control" ID="txtTitle" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required" ControlToValidate="txtTitle" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Author</th>
-                        <td>
-                            <asp:TextBox class="form-control" ID="txtAuthor" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Required" ControlToValidate="txtAuthor" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Category</th>
-                        <td>
-                            <asp:DropDownList class="form-control" ID="txtCategory" runat="server">
-                                <asp:ListItem>IT</asp:ListItem>
-                                <asp:ListItem>Biography</asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Required" ControlToValidate="txtCategory" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Price (INR)</th>
-                        <td>
-                            <asp:TextBox class="form-control" ID="txtPrice" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Required" ControlToValidate="txtPrice" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Stock</th>
-                        <td>
-                            <asp:TextBox class="form-control" ID="txtStock" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Required" ControlToValidate="txtStock" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Language</th>
-                        <td>
-                            <asp:TextBox class="form-control" ID="txtLanguage" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*Required" ControlToValidate="txtLanguage" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: center;">
-                            <asp:Button class="btn btn-success" ID="Button2" runat="server" Text="Save" ValidationGroup="InsertGroup" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
 
             <div class="ShowRecord">
-                <asp:GridView ID="GridView1" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" Width="100%">
+                <asp:GridView ID="GridView1" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="4" ForeColor="Black" Width="100%" Font-Names="Algerian" OnRowCommand="GridView1_RowCommand">
+                    <Columns>
+        <asp:TemplateField>
+            <ItemTemplate>
+                <asp:Button class="btn btn-primary" ID="EditBtn" runat="server" Text="Edit" CommandName="EditRow" CommandArgument='<%# Container.DataItemIndex %>' />
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField>
+            <ItemTemplate>
+                <asp:Button class="btn btn-danger" ID="DeleteBtn" runat="server" Text="Delete" CommandName="DeleteRow" CommandArgument='<%# Container.DataItemIndex %>' OnClientClick="return confirm('Are you sure you want to delete this record?');" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
                     <FooterStyle BackColor="#CCCCCC" />
                     <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
@@ -141,6 +90,67 @@
                     <SortedDescendingHeaderStyle BackColor="#383838" />
                 </asp:GridView>
             </div>
+
+
+            <div class="input-field">
+                <table>
+                    <tr>
+                        <th colspan="2" style="text-align: center">Update Records</th>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <td>
+                            <asp:TextBox class="form-control" ID="txtTitle" runat="server" Font-Names="Rockwell"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required" ControlToValidate="txtTitle" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Author</th>
+                        <td>
+                            <asp:TextBox class="form-control" ID="txtAuthor" runat="server" Font-Names="Rockwell"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Required" ControlToValidate="txtAuthor" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <td>
+                            <asp:DropDownList class="form-control" ID="txtCategory" runat="server" Font-Names="Rockwell">
+                                <asp:ListItem>IT</asp:ListItem>
+                                <asp:ListItem>Biography</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Required" ControlToValidate="txtCategory" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Price (INR)</th>
+                        <td>
+                            <asp:TextBox class="form-control" ID="txtPrice" runat="server" Font-Names="Rockwell" TextMode="Number"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Required" ControlToValidate="txtPrice" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Stock</th>
+                        <td>
+                            <asp:TextBox class="form-control" ID="txtStock" runat="server" Font-Names="Rockwell" TextMode="Number"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Required" ControlToValidate="txtStock" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Language</th>
+                        <td>
+                            <asp:TextBox class="form-control" ID="txtLanguage" runat="server" Font-Names="Rockwell"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*Required" ControlToValidate="txtLanguage" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <asp:Button class="btn btn-success" ID="Button2" runat="server" Text="Save" ValidationGroup="InsertGroup" OnClick="Button2_Click" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
         </div>
     </div>
 </asp:Content>

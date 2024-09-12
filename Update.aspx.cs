@@ -67,5 +67,75 @@ namespace Book_Gallery
                 
             }
         }
+
+        
+
+        
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditRow")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = GridView1.Rows[index];
+
+                ViewState["bookId"] = row.Cells[2].Text;
+
+                txtTitle.Text = row.Cells[3].Text; 
+                txtAuthor.Text = row.Cells[4].Text;
+                txtCategory.SelectedValue = row.Cells[5].Text;
+                txtPrice.Text = row.Cells[6].Text;
+                txtStock.Text = row.Cells[7].Text;
+                txtLanguage.Text = row.Cells[8].Text;
+            }
+            else if (e.CommandName == "DeleteRow")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = GridView1.Rows[index];
+
+
+                using(SqlConnection con = new SqlConnection(cs))
+                {
+                    SqlCommand cmd = new SqlCommand("spDeleteRecords", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", row.Cells[2].Text);
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                GridView1.Enabled = false;
+                GridView1.Enabled = true;
+
+                getSearchedRecord();
+
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand("spEditRecords", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", ViewState["bookId"].ToString());
+                cmd.Parameters.AddWithValue("@title", txtTitle.Text);
+                cmd.Parameters.AddWithValue("@author", txtAuthor.Text);
+                cmd.Parameters.AddWithValue("@category", txtCategory.SelectedValue);
+                cmd.Parameters.AddWithValue("@price", txtPrice.Text);
+                cmd.Parameters.AddWithValue("@stock", txtStock.Text);
+                cmd.Parameters.AddWithValue("@lang", txtLanguage.Text);
+
+                con.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+
+            GridView1.Enabled = false;
+            GridView1.Enabled = true;
+
+            getSearchedRecord();
+        }
     }
 }

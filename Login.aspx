@@ -55,7 +55,7 @@
             justify-content: space-evenly;
             align-items: center;
             gap: 30px;
-            padding: 5px;
+            padding: 10px;
         }
 
             .login .form h1, .signup .form h1 {
