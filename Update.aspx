@@ -7,6 +7,7 @@
             height: 80vh;
             width: 99.7%;
             border-left: 2px solid rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.9);
         }
 
         .form {
@@ -28,18 +29,26 @@
         .Records {
             width: 100%;
             display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            padding: 2px;
+            border-top: 5px solid white;
         }
 
         .ShowRecord {
             overflow-y: auto;
-            border-left: 2px solid black;
-            width: 70%;
+            width: 100%;
+            max-height: 130px;
+            border-bottom: 5px solid white;
         }
 
         .input-field {
-            padding: 5px;
-            background: whitesmoke;
+            padding: 15px;
+            background: aliceblue;
+            color: #333;
             border-left: 2px solid rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
         }
 
             .input-field table tr td {
@@ -64,9 +73,8 @@
         </div>
 
         <div class="Records">
-
             <div class="ShowRecord">
-                <asp:GridView ID="GridView1" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="4" ForeColor="Black" Width="100%" Font-Names="Algerian" OnRowCommand="GridView1_RowCommand">
+                <asp:GridView ID="GridView1"  runat="server" CssClass= "table table-striped table-bordered table-condensed" Width="100%" Font-Names="Rockwell" OnRowCommand="GridView1_RowCommand">
                     <Columns>
         <asp:TemplateField>
             <ItemTemplate>
@@ -95,7 +103,7 @@
             <div class="input-field">
                 <table>
                     <tr>
-                        <th colspan="2" style="text-align: center">Update Records</th>
+                        <th colspan="4" style="text-align: center"><h2>Update Records</h2></th>
                     </tr>
                     <tr>
                         <th>Title</th>
@@ -103,8 +111,7 @@
                             <asp:TextBox class="form-control" ID="txtTitle" runat="server" Font-Names="Rockwell"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required" ControlToValidate="txtTitle" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
                         </td>
-                    </tr>
-                    <tr>
+                    
                         <th>Author</th>
                         <td>
                             <asp:TextBox class="form-control" ID="txtAuthor" runat="server" Font-Names="Rockwell"></asp:TextBox>
@@ -114,14 +121,13 @@
                     <tr>
                         <th>Category</th>
                         <td>
-                            <asp:DropDownList class="form-control" ID="txtCategory" runat="server" Font-Names="Rockwell">
+                            <asp:DropDownList class="form-select" ID="txtCategory" runat="server" Font-Names="Rockwell">
                                 <asp:ListItem>IT</asp:ListItem>
                                 <asp:ListItem>Biography</asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Required" ControlToValidate="txtCategory" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
                         </td>
-                    </tr>
-                    <tr>
+                    
                         <th>Price (INR)</th>
                         <td>
                             <asp:TextBox class="form-control" ID="txtPrice" runat="server" Font-Names="Rockwell" TextMode="Number"></asp:TextBox>
@@ -134,8 +140,7 @@
                             <asp:TextBox class="form-control" ID="txtStock" runat="server" Font-Names="Rockwell" TextMode="Number"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Required" ControlToValidate="txtStock" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
                         </td>
-                    </tr>
-                    <tr>
+                    
                         <th>Language</th>
                         <td>
                             <asp:TextBox class="form-control" ID="txtLanguage" runat="server" Font-Names="Rockwell"></asp:TextBox>
@@ -143,12 +148,19 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="text-align: center;">
+                        <td colspan="4" style="text-align: center;">
                             <asp:Button class="btn btn-success" ID="Button2" runat="server" Text="Save" ValidationGroup="InsertGroup" OnClick="Button2_Click" />
                         </td>
                     </tr>
                 </table>
             </div>
+
+            
+
+
+
+
+            
 
 
         </div>

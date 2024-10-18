@@ -10,8 +10,7 @@
             background: url("Images/background1.jpg");
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-           
+            background-repeat: no-repeat;           
         }
 
         .left-comp .quote
@@ -33,7 +32,6 @@
             font-weight: 800;
             text-align: center;
             border-bottom: 2px solid darkorange;
-
         }
 
         .left-comp span
@@ -72,6 +70,7 @@
             font-weight: 600;
         }
 
+
         .searchInput input::placeholder
         {
             font-family: Rockwell;
@@ -97,7 +96,7 @@
                 <asp:Label ID="Label1" runat="server" ForeColor="Red" Font-Bold="True" Font-Italic="False" Font-Names="Rockwell"></asp:Label>
             </div>
             
-            <asp:GridView ID="GridView1" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px"  Font-Names="Algerian" ForeColor="Black" CellPadding="4" CellSpacing="2" width="100%">
+            <asp:GridView ID="GridView1" cssClass="table table-striped table-bordered" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px"  Font-Names="Algerian" ForeColor="Black" CellPadding="4" CellSpacing="2" width="100%">
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />

@@ -7,6 +7,8 @@
             padding: 15px;
             border: 2px solid black;
             width: 50%;
+            background: rgba(0,0,0,0.9);
+            color: aliceblue;
         }
 
         .BookInsertBox table tr td
@@ -24,7 +26,6 @@
         .RecordBooks
         {
             overflow-y: auto;
-            padding: 10px;
         }
     </style>
 </asp:Content>
@@ -37,21 +38,21 @@
             <tr>
                 <th>Title</th>
                 <td>
-                    <asp:TextBox class="form-control" ID="txtTitle" runat="server"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="txtTitle" runat="server" Font-Names="Rockwell"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required" ControlToValidate="txtTitle" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <th>Author</th>
                 <td>
-                    <asp:TextBox class="form-control" ID="txtAuthor" runat="server"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="txtAuthor" runat="server" Font-Names="Rockwell"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Required" ControlToValidate="txtAuthor" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <th>Category</th>
                 <td>
-                    <asp:DropDownList class="form-control" ID="txtCategory" runat="server">
+                    <asp:DropDownList class="form-select" ID="txtCategory" runat="server" Font-Names="Rockwell">
                     <asp:ListItem>IT</asp:ListItem>
                     <asp:ListItem>Biography</asp:ListItem>
                     </asp:DropDownList>
@@ -61,21 +62,21 @@
             <tr>
                 <th>Price (INR)</th>
                 <td>
-                    <asp:TextBox class="form-control" ID="txtPrice" runat="server"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="txtPrice" runat="server" Font-Names="Rockwell" TextMode="Number"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Required" ControlToValidate="txtPrice" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <th>Stock</th>
                 <td>
-                    <asp:TextBox class="form-control" ID="txtStock" runat="server"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="txtStock" runat="server" Font-Names="Rockwell" TextMode="Number"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Required" ControlToValidate="txtStock" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <th>Language</th>
                 <td>
-                    <asp:TextBox class="form-control" ID="txtLanguage" runat="server"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="txtLanguage" runat="server" Font-Names="Rockwell"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*Required" ControlToValidate="txtLanguage" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
@@ -85,7 +86,7 @@
         </table>
     </div>
     <div class="RecordBooks">
-        <asp:GridView ID="GridView1" runat="server" CellPadding="3" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Font-Names="Algerian">
+        <asp:GridView ID="GridView1" cssClass="table table-striped table-bordered" runat="server" CellPadding="3" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Font-Names="Rockwell">
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <FooterStyle BackColor="#CCCCCC" />
             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />

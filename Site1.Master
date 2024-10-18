@@ -42,6 +42,7 @@
             text-shadow: 0 2px 2px aliceblue;
         }
 
+
         .wrapper {
             height: 80vh;
             width: 100%;
@@ -66,8 +67,7 @@
             border: 2px solid rgb(31, 30, 30);
             display: flex;
             justify-content:space-between;
-            gap: 2px;
-            
+            gap: 2px;    
         }
 
         .menu {
@@ -81,14 +81,14 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
-                gap: 70px;
+                gap: 60px;
                 font-size: 18px;
                 font-weight: 600;
                 letter-spacing: 1px;
             }
 
                 .menu ul li {
-                    padding-top: 10px;
+                    padding-top: 5px;
                 }
 
                     .menu ul li a {
@@ -98,8 +98,6 @@
                         font-family: Rockwell;
                         letter-spacing: 1px;
                     }
-
-
 
                         .menu ul li a:hover {
                             color: rgb(74, 197, 19);
@@ -153,6 +151,10 @@
                         <asp:MenuItem NavigateUrl="~/Home.aspx?selected=Categories" Text="<i class='fa-solid fa-layer-group'></i> Categories">
                             <asp:MenuItem NavigateUrl="~/Technology.aspx?selected=IT" Text="<i class='fa-solid fa-microchip'></i> Technology"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Biography.aspx?selected=Biography" Text="<i class='fa-solid fa-file-lines'></i> Biography"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Home.aspx?selected=users" Text="<i class='fa-solid fa-users'></i> Users">
+                            <asp:MenuItem NavigateUrl="~/UserSignup.aspx?selected=user-signup" Text="<i class='fa-solid fa-user-plus'></i> User SignUp"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/UserInfo.aspx?selected=user-info" Text="<i class='fa-solid fa-file-lines'></i> User Info"></asp:MenuItem>
                         </asp:MenuItem>
                     </Items>
                 </asp:Menu>

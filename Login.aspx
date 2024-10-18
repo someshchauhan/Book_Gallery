@@ -14,6 +14,7 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
@@ -38,9 +39,14 @@
             width: 50%;
             height: 70vh;
             border-radius: 20px;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
+        }
+
+        #loginForm, #signDemo
+        {
+            display: flex
         }
 
         #logDemo, #signupForm {
@@ -81,17 +87,20 @@
             .login .form input, .signup .form input {
                 border: none;
                 outline: none;
-                background: rgb(223, 218, 218);
+                background: rgb(37, 38, 40);
                 padding: 10px 30px;
                 border-radius: 5px;
                 font-family: Rockwell;
+                color: aliceblue;
             }
 
                 .login .form input::placeholder, .signup .form input::placeholder {
                     font-family: rockwell;
                     letter-spacing: 2px;
                     font-weight: 600;
+                    color: aliceblue;
                 }
+
 
             .login .form a {
                 text-decoration: none;
@@ -122,14 +131,11 @@
 
 
 
-
-
-
         .loginDemo, .signupDemo {
             background-color: rgb(126, 8, 253);
             width: 50%;
             border-radius: 150px 20px 20px 70px;
-            display: flex;
+            display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -165,6 +171,32 @@
                 color: white;
                 cursor: pointer;
             }
+
+        .fpWrapper {
+            width: 100%;
+            height: 70vh;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(78deg, rgb(208, 205, 205), rgb(216, 209, 209), rgb(217, 206, 226), rgb(173, 183, 219));
+            border-radius: 20px;
+
+        }
+
+        .forgotPass
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 10px;
+            align-content: center;
+            font-family: Rockwell;
+        }
+
+        .form-control::placeholder
+        {
+            font-family: Rockwell;
+        }
     </style>
 
     <script>
@@ -177,6 +209,7 @@
             document.getElementById("signDemo").style.display = "flex";
 
         }
+
 
         function signupDemo() {
             document.getElementById("logDemo").style.display = "flex";
@@ -234,6 +267,48 @@
                 <input type="password" id="confirmPass" placeholder="Confirm Password" runat="server" /><asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="*Password not matching" ForeColor="Red" ControlToCompare="txtPasswordReg" ControlToValidate="confirmPass"></asp:CompareValidator>
                 <asp:Button ID="SignUpButton" runat="server" Text="SignUp" OnClick="SignUpButton_Click" />
                 <asp:Label ID="lblSignup" runat="server" ForeColor="Red"></asp:Label>
+            </div>
+        </div>
+
+        <div class="fpWrapper" runat="server">
+            <div class="forgotPass">
+
+                <h2>Reset Password</h2>
+
+                <div>
+                    <asp:TextBox class="form-control"  ID="txtFpUser" runat="server" AutoPostBack="True" placeholder="User Name" Height="40px" Width="400px" Font-Names="Rockwell" OnTextChanged="txtFbUser_TextChanged"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Required" ControlToValidate="txtUser" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+
+                
+
+
+                <div>
+                    <asp:TextBox class="form-control" ID="txtCode" runat="server" AutoPostBack="True" placeholder="Security Code" Height="40px" Width="400px" Font-Names="Rockwell" OnTextChanged="txtCode_TextChanged"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Required" ControlToValidate="txtCode" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+
+
+
+                <div>
+                    <asp:TextBox class="form-control" ID="txtPass" runat="server" TextMode="Password" placeholder="New Password" Height="40px" Width="400px" Font-Names="Rockwell"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Required" ControlToValidate="txtPass" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+
+
+
+                <div>
+                    <asp:TextBox class="form-control" ID="txtConfirmPass" runat="server" TextMode="Password" placeholder="New Password" Height="40px" Width="400px" Font-Names="Rockwell"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required" ControlToValidate="txtConfirmPass" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator><asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="*Password must match" ControlToCompare="txtPass" ControlToValidate="txtConfirmPass" ForeColor="Red"></asp:CompareValidator>
+                </div>
+
+                <div>
+                    <asp:Button class="btn btn-success" ID="FbButton" runat="server" Text="Submit" OnClick="FbButton_Click" />
+                </div>
+
+                <div>
+                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                </div>
             </div>
         </div>
 

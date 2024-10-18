@@ -16,10 +16,7 @@ namespace Book_Gallery
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if(!IsPostBack)
-            {
-                GetRecords();
-            }*/
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -63,15 +60,12 @@ namespace Book_Gallery
                 else
                 {
                     Label1.Text = "No data Available for this BookID/BookName/AuthorName";
-                }
-                
+                }              
+
             }
         }
 
-        
-
-        
-
+       
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "EditRow")

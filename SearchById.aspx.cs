@@ -39,13 +39,15 @@ namespace Book_Gallery
                     GridView1.Visible = true;
                     GridView1.DataSource = rdr;
                     GridView1.DataBind();
+                    
                     Label1.Text = "Data Found";
                 }
                 else
                 {
                     GridView1.Visible = false;
+                    
                     Label1.Text = "No Data Found";
-                   
+
                 }
 
 
