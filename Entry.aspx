@@ -39,14 +39,14 @@
                 <th>Title</th>
                 <td>
                     <asp:TextBox class="form-control" ID="txtTitle" runat="server" Font-Names="Rockwell"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required" ControlToValidate="txtTitle" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required" ControlToValidate="txtTitle" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <th>Author</th>
                 <td>
                     <asp:TextBox class="form-control" ID="txtAuthor" runat="server" Font-Names="Rockwell"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Required" ControlToValidate="txtAuthor" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Required" ControlToValidate="txtAuthor" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -56,32 +56,32 @@
                     <asp:ListItem>IT</asp:ListItem>
                     <asp:ListItem>Biography</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Required" ControlToValidate="txtCategory" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Required" ControlToValidate="txtCategory" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <th>Price (INR)</th>
                 <td>
                     <asp:TextBox class="form-control" ID="txtPrice" runat="server" Font-Names="Rockwell" TextMode="Number"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Required" ControlToValidate="txtPrice" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Required" ControlToValidate="txtPrice" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <th>Stock</th>
                 <td>
                     <asp:TextBox class="form-control" ID="txtStock" runat="server" Font-Names="Rockwell" TextMode="Number"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Required" ControlToValidate="txtStock" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Required" ControlToValidate="txtStock" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <th>Language</th>
                 <td>
                     <asp:TextBox class="form-control" ID="txtLanguage" runat="server" Font-Names="Rockwell"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*Required" ControlToValidate="txtLanguage" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*Required" ControlToValidate="txtLanguage" ForeColor="Red" ValidationGroup="InsertGroup"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align: center;"><asp:Button class="btn btn-success" ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" /></td>
+                <td colspan="2" style="text-align: center;"><asp:Button class="btn btn-success" ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" ValidationGroup="InsertGroup" /></td>
             </tr>
         </table>
     </div>

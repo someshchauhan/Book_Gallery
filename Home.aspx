@@ -16,7 +16,6 @@
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            
         }
 
         .WelcomeNote h1

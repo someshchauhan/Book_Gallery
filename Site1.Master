@@ -12,13 +12,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
-        *{margin: 0; padding: 0; box-sizing: border-box;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         .bg-dark {
             background: linear-gradient(45deg, rgb(17, 17, 18), rgb(27, 29, 37), rgb(23, 36, 76));
         }
 
-        .bg-sp
-        {
+        .bg-sp {
             background: rgb(246, 83, 16);
         }
 
@@ -31,16 +35,15 @@
             display: flex;
             justify-content: space-between;
         }
-        
-        .nav-bar span
-        {
-            color: aliceblue;
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            font-family: Forte;
-            text-shadow: 0 2px 2px aliceblue;
-        }
+
+            .nav-bar span {
+                color: aliceblue;
+                font-size: 24px;
+                font-weight: 800;
+                letter-spacing: 2px;
+                font-family: Forte;
+                text-shadow: 0 2px 2px aliceblue;
+            }
 
 
         .wrapper {
@@ -66,9 +69,66 @@
             width: 78%;
             border: 2px solid rgb(31, 30, 30);
             display: flex;
-            justify-content:space-between;
-            gap: 2px;    
+            justify-content: space-between;
+            gap: 2px;
+            position: relative;
         }
+
+        #ContentPlaceHolder1 {
+            position: absolute;
+        }
+
+        .confirmation {
+            position: absolute;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            width: 100%;
+        }
+
+
+        .confirmation-box {
+            background: white;
+            padding: 65px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+        }
+
+        .confirmation-btn
+        {
+            width: 100%;
+            display:flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        #btnYes, #btnNO
+        {
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: aliceblue;
+            font-weight: 700;
+            letter-spacing: 1px;
+            
+        }
+
+        #btnYes
+        {
+            background: lime;
+        }
+
+        #btnNO
+        {
+            background: red;
+        }
+
 
         .menu {
             padding: 10px;
@@ -103,10 +163,31 @@
                             color: rgb(74, 197, 19);
                         }
 
+        .logoutSection {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .logoutButton {
+            background: red;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: aliceblue;
+            font-weight: 700;
+            letter-spacing: 1px;
+            
+        }
+
         selected, .selected:hover {
             background-color: blue;
             color: white;
         }
+
+
 
         .footer {
             margin-top: 2px;
@@ -126,11 +207,10 @@
                 <a class="navbar-brand" href="Home.aspx">
                     <img src="Images/logo.jpg" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
                 </a>
-               
+
             </div>
 
-            <span>
-                BookLib
+            <span>BookLib
             </span>
         </nav>
 
@@ -144,9 +224,9 @@
                             <asp:MenuItem NavigateUrl="~/Update.aspx?selected=Update" Text="<i class='fa-solid fa-pen-to-square'></i> Update"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="#" Text="<i class='fa-solid fa-magnifying-glass'></i> Search">
-                            <asp:MenuItem NavigateUrl="~/SearchById.aspx?selected=SearchById" Text="BookID"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/SearchByName.aspx?selected=SearchByName" Text="Book Name"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/SearchByAuthor.aspx?selected=SearchByAuthor" Text="Author Name"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/SearchById.aspx?selected=SearchById" Text="<i class='fa-solid fa-magnifying-glass'></i> BookID"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/SearchByName.aspx?selected=SearchByName" Text="<i class='fa-solid fa-magnifying-glass'></i> Book Name"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/SearchByAuthor.aspx?selected=SearchByAuthor" Text="<i class='fa-solid fa-magnifying-glass'></i> Author Name"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Home.aspx?selected=Categories" Text="<i class='fa-solid fa-layer-group'></i> Categories">
                             <asp:MenuItem NavigateUrl="~/Technology.aspx?selected=IT" Text="<i class='fa-solid fa-microchip'></i> Technology"></asp:MenuItem>
@@ -159,8 +239,25 @@
                         </asp:MenuItem>
                     </Items>
                 </asp:Menu>
+
+
+                <div class="logoutSection">
+                    <asp:Button ID="Button1" runat="server" Text="Log Out" CssClass="logoutButton" OnClick="Button1_Click" />
+                </div>
+
+
             </div>
             <div class="content-area">
+                <div runat="server" id="confirmation" class="confirmation">
+
+                    <div class="confirmation-box">
+                        <h3>Do you really want to Logout?</h3>
+                        <div class="confirmation-btn">
+                            <asp:Button ID="btnYes" runat="server" Text="Confirm" OnClick="btnYes_Click" />
+                        <asp:Button ID="btnNO" runat="server" Text="Cancel" OnClick="btnNO_Click" />
+                        </div>
+                    </div>
+                </div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
