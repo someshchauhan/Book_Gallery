@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="UserInfo.aspx.cs" Inherits="Book_Gallery.WebForm12" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="UserBookRecords.aspx.cs" Inherits="Book_Gallery.WebForm11" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -40,12 +40,12 @@
         .ShowRecord {
             overflow-y: auto;
             width: 100%;
-            max-height: 300px;
+            max-height: 150px;
             margin-top: 5px;
         }
 
         .input-field {
-            padding: 30px;
+            padding: 25px;
             background: aliceblue;
             color: #333;
             border-left: 2px solid rgba(0, 0, 0, 0.9);
@@ -67,7 +67,7 @@
     <div class="wrapper-content">
 
         <div class="form">
-            <input class="form-control" id="Parameter" runat="server" type="search" placeholder="Search By Name or ID" aria-label="Search" />
+            <input class="form-control" id="Parameter" runat="server" type="search" placeholder="Search By Name or ID" aria-label="Search"  />
             <asp:Button class="btn btn-success" ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" />
             <asp:Label ID="Label1" runat="server" ForeColor="Red" Font-Bold="True" Font-Italic="False" Font-Names="Rockwell"></asp:Label>
         </div>
@@ -105,33 +105,47 @@
             <div runat="server" id="updateField" class="input-field">
                 <table>
                     <tr>
-                        <th colspan="4" style="text-align: center">
-                            <h2>Update Records</h2>
-                        </th>
+                        <th colspan="4" style="text-align: center"><h2>Update Records</h2></th>
                     </tr>
                     <tr>
-                        <th>ID</th>
-                        <td>
-                            <asp:TextBox CssClass="form-control" ID="txtID" runat="server" ReadOnly="True" Enabled="False" Font-Names="Rockwell"></asp:TextBox></td>
+                        <th>UserName</th>
+                        <td><asp:TextBox CssClass="form-control" ID="txtUserName" runat="server" ReadOnly="True" Enabled="False" Font-Names="Rockwell" ></asp:TextBox></td>
 
-                        <th>Name</th>
-                        <td>
-                            <asp:TextBox CssClass="form-control" ID="txtName" runat="server"  Font-Names="Rockwell"></asp:TextBox></td>
+                        <th>UserId</th>
+                        <td><asp:TextBox CssClass="form-control" ID="txtUserId" runat="server" ReadOnly="True" Enabled="False" Font-Names="Rockwell" ></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <th>Email</th>
-                        <td>
-                            <asp:TextBox CssClass="form-control" ID="txtEmail" runat="server"  Font-Names="Rockwell"></asp:TextBox></td>
+                        <th>BookId</th>
+                        <td><asp:TextBox CssClass="form-control" ID="txtBookId" runat="server" ReadOnly="True" Enabled="False" Font-Names="Rockwell" ></asp:TextBox></td>
 
-                        <th>Mobile NO.</th>
-                        <td>
-                            <asp:TextBox CssClass="form-control" ID="txtMob" runat="server"  Font-Names="Rockwell"></asp:TextBox></td>
+                        <th>BookName</th>
+                        <td><asp:TextBox CssClass="form-control" ID="txtBookName" runat="server" ReadOnly="True" Enabled="False" Font-Names="Rockwell"></asp:TextBox></td>
                     </tr>
-                    
+                    <tr>
+                        <th>CheckOut</th>
+                        <td><asp:TextBox CssClass="form-control" ID="txtCheckOut" runat="server" ReadOnly="True" Enabled="False" Font-Names="Rockwell" ></asp:TextBox></td>
+
+                        <th>CheckIn</th>
+                        <td><asp:TextBox CssClass="form-control" ID="txtCheckIn" runat="server" ReadOnly="True" Enabled="False" Font-Names="Rockwell" ></asp:TextBox></td>
+                    </tr>
+                    <tr>
+
+                        <th>Status</th>
+
+                        <td colspan="3">
+                            <asp:DropDownList class="form-select" ID="txtStatus" runat="server" Font-Names="Rockwell" >
+                                <asp:ListItem>Borrowed</asp:ListItem>
+                                <asp:ListItem>Returned</asp:ListItem>
+                                <asp:ListItem>Sold</asp:ListItem>
+                            </asp:DropDownList>
+
+                        </td>
+
+                        </tr>
                     <tr>
 
                         <td colspan="4" style="text-align: center;">
-                            <asp:Button class="btn btn-success" ID="Button2" runat="server" Text="Update" />
+                            <asp:Button class="btn btn-success" ID="Button2" runat="server" Text="Update" OnClick="Button2_Click" />
                         </td>
                     </tr>
                 </table>

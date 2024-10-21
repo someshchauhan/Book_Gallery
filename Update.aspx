@@ -40,7 +40,7 @@
             overflow-y: auto;
             width: 100%;
             max-height: 130px;
-            border-bottom: 5px solid white;
+            margin-top: 5px;
         }
 
         .input-field {

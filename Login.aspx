@@ -87,7 +87,7 @@
             .login .form input, .signup .form input {
                 border: none;
                 outline: none;
-                background: rgb(37, 38, 40);
+                background: rgb(193, 181, 181);
                 padding: 10px 30px;
                 border-radius: 5px;
                 font-family: Rockwell;

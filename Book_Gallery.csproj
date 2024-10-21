@@ -86,6 +86,7 @@
     <Content Include="SearchByName.aspx" />
     <Content Include="SearchByAuthor.aspx" />
     <Content Include="UserSignup.aspx" />
+    <Content Include="UserBookRecords.aspx" />
     <Content Include="UserInfo.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +182,13 @@
     </Compile>
     <Compile Include="UserSignup.aspx.designer.cs">
       <DependentUpon>UserSignup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserBookRecords.aspx.cs">
+      <DependentUpon>UserBookRecords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserBookRecords.aspx.designer.cs">
+      <DependentUpon>UserBookRecords.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserInfo.aspx.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>

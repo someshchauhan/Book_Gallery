@@ -92,7 +92,7 @@
                 }
 
                     .menu ul li a {
-                        font-size: 18px;
+                        font-size: 16px;
                         color: aliceblue;
                         font-weight: 700;
                         font-family: Rockwell;
@@ -154,7 +154,8 @@
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Home.aspx?selected=users" Text="<i class='fa-solid fa-users'></i> Users">
                             <asp:MenuItem NavigateUrl="~/UserSignup.aspx?selected=user-signup" Text="<i class='fa-solid fa-user-plus'></i> User SignUp"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/UserInfo.aspx?selected=user-info" Text="<i class='fa-solid fa-file-lines'></i> User Info"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/UserBookRecords.aspx?selected=user-record" Text="<i class='fa-solid fa-file-lines'></i> User Record"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/UserInfo.aspx?selected=user-info" Text="<i class='fa-solid fa-id-card'></i> User Info"></asp:MenuItem>
                         </asp:MenuItem>
                     </Items>
                 </asp:Menu>
