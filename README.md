@@ -82,7 +82,7 @@ Git for version control
 Database Design
 The database is designed to efficiently store and manage book records, users, and related data. The core tables include:
 
-Books: Stores information about each book (e.g., title, author, ISBN, publication date).
+Books: Stores information about each book (e.g., title, author, Price, current stock, etc).
 Users: Manages user information and authentication details.
 Borrowing Records (optional): Tracks when users borrow and return books.
 Entity Relationship Diagram (ERD)
@@ -103,4 +103,4 @@ Contact
 For any queries or issues, please contact:
 
 Author: Somesh Chauhan
-Email: somesh@example.com (Replace with actual email)
+Email: somesh.chauhan.255@gmail.com
